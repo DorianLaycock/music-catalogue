@@ -11,7 +11,7 @@ export default function ItemList({ items, onDelete }) {
             <h1 class="text-2xl font-bold mb-5">Albums:</h1>
             {items.map((item) => (
                 <div>
-                    <Item artist={item.artist} album={item.album}/>
+                    <Item artist={item.artist} album={item.album} onDelete={handleDelete}/>
                 </div>
             ))}
         </div>
