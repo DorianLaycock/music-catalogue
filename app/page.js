@@ -9,11 +9,40 @@ const itemsData = [
   {artist: "Summoning", album: "Stronghold"},
   {artist: "Opeth", album: "Blackwater Park"},
   {artist: "Bathory", album: "Blood Fire Death"},
-]
+];
+
+/* async fetchImage(){ 
+  try {
+    response = await fetch("");
+    const data = await response.json();
+    return data.message;
+  } catch (error){
+    console.error(error);
+  }
+} */ /* API, creates an error when not commented out... fix later */
 
 export default function Page() {
   
   const [items, setItems] = useState(itemsData);
+  const [image, setImage] = useState([]); /* API */
+
+  async function loadImage(){ /* API */
+    const images = await fetchImage();
+    setAlbums(albums);
+  }
+
+  async function loadAlbums(){
+    const albums = await fetchAlbums();
+    setAlbums(albums);
+  }
+
+  useEffect(() => {
+    loadAlbums();
+  }, []);
+
+  function onMouseOver(){
+    console.log("it works!");
+  }
 
   function handleSubmit(item) {
     setItems([...items, item]);
@@ -29,6 +58,7 @@ export default function Page() {
       <p>Welcome to Music Catalogue v0.3</p>
       <p>This is a personal project I will be using to practice my web development skills.</p>
       <p>Soon the features will be added to save your list, and display album art.</p>
+      <p onMouseOver = {(onMouseOver)}>Use this to test hover function.</p> {/* API related */}
       <div class="flex flex-row">
           <Itemform onSubmit={(item) => handleSubmit(item)} />
           <ItemList items={items} onDelete = {handleDelete}/>
