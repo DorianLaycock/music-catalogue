@@ -1,9 +1,9 @@
 "use client";
 
-import {useState, useEffect} from "react";
+import {useState} from "react";
 import ItemList from "./itemlist.js";
 import Itemform from "./itemform.js";
-import Item from "./item.js";
+import InfoItem from "./infoItem.js";
 
 const itemsData = [
   {artist: "Summoning", album: "Stronghold"},
@@ -35,6 +35,9 @@ export default function Page() {
         </div>
         <div>
           <ItemList items={items} onDelete = {handleDelete}/>
+        </div>
+        <div class="border w-64 m-1">
+          {/* Placeholder for album info */}
         </div>
       </div>
     </main>
