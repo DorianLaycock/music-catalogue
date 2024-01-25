@@ -1,27 +1,24 @@
 import { useState, useEffect } from "react";
+import Modal from "./modal.js";
 
 const Item = ({ artist, album, onDelete }) => {
+    const [modalOpen, setModalOpen] = useState(false);
     const [albumInfo, setAlbumInfo] = useState(null);
 
     useEffect(() => {
-
         const apiKey = '49f75ad538e6137b8ef970367d3e8b8a';
-        const apiUrl = `http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${apiKey}&artist=${artist}&album=${album}&format=json`;
-        
+        const apiUrl = `http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${apiKey}&artist=${artist}&album=${album}&format=json`;   
 
         fetch(apiUrl)
             .then(response => response.json())
             .then(data => {
-
-            // Handle the data, which contains album information including cover URLs
             
-            const coverUrl = data.album.image[3]['#text'];
+            const coverUrl = data.album.image[3]['#text']; // Handle the data, which contains album information including cover URLs
             const releaseDate = data.album.wiki ? data.album.wiki.published : null;
-            setAlbumInfo({ artist, album, coverUrl });
 
-            //Console log relevant for future use 
+            setAlbumInfo({ artist, album, coverUrl }); 
 
-            console.log(data);
+            console.log(data); //Console log relevant for future use
         })
         .catch(error => {
             console.error('Error fetching data:', error);

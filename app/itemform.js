@@ -43,7 +43,7 @@ export default function Itemform({onSubmit}) {
                             </div>
                     </div>
                     <div className="pt-2 text-center">
-                        <button className=" cursor pointer border-2 rounded border-blue-500 bg-blue-500 w-32 mb-2 hover:bg-slate-400">Add </button>
+                        <button className="cursor pointer border-2 rounded border-blue-500 bg-blue-500 w-32 mb-2 hover:bg-slate-400">Add </button>
                     </div>
                 </form>
         </div>
