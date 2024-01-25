@@ -1,9 +1,9 @@
 "use client";
 
 import {useState} from "react";
+import Link from "next/link";
 import ItemList from "./itemlist.js";
 import Itemform from "./itemform.js";
-import InfoItem from "./infoItem.js";
 
 const itemsData = [
   {artist: "Summoning", album: "Stronghold"},
@@ -26,18 +26,20 @@ export default function Page() {
   return (
     <main class="flex flex-col justify-center items-center w-screen">
       <h1 class="text-4xl">Music Catalogue</h1>
-      <p>Welcome to Music Catalogue v0.5</p>
-      <p>This is a personal project I will be using to practice my web development skills.</p>
-      <p>Soon the features will be added to save your list, and display album art.</p>
+      <div class="flex flex-row">
+        <div class="pt-2 text-center m-2">
+          <Link href="/" class="cursor pointer border-2 rounded border-blue-500 bg-blue-500 w-32 mb-2 hover:bg-black">Home</Link>
+        </div>
+        <div class="pt-2 text-center m-2">
+          <Link href="/aboutPage" class="cursor pointer border-2 rounded border-blue-500 bg-blue-500 w-32 mb-2 hover:bg-black">About</Link>
+        </div>
+      </div>
       <div class="flex flex-row">
         <div>
           <Itemform onSubmit={(item) => handleSubmit(item)} />
         </div>
         <div>
           <ItemList items={items} onDelete = {handleDelete}/>
-        </div>
-        <div class="border w-64 m-1">
-          {/* Placeholder for album info */}
         </div>
       </div>
     </main>

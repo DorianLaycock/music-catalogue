@@ -35,6 +35,7 @@ const Item = ({ artist, album, onDelete }) => {
                 {albumInfo && (
                     <img src={albumInfo.coverUrl} alt="Album Cover" class="object-contain h-20 w-20 m-2 rounded"/>
                 )}
+
             </div>
             <div>
                 <h3 class="cursor-pointer font-bold text-xl hover:underline">{artist}</h3>
