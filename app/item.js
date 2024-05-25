@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Modal from "./modal.js";
 
 const Item = ({ artist, album, onDelete }) => {
     const [modalOpen, setModalOpen] = useState(false);
